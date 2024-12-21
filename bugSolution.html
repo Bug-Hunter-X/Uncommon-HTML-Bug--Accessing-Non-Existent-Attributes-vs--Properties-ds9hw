@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv" data-custom="This is a custom attribute"></div>
+
+  <script>
+    // Check for the existence of an attribute before accessing it
+    let divElement = document.getElementById('myDiv');
+    let customAttribute = divElement.hasAttribute('data-custom') ? divElement.getAttribute('data-custom') : null;  
+    console.log("Custom Attribute:", customAttribute); // Output: Custom Attribute: This is a custom attribute
+
+    let nonExistentAttribute = divElement.getAttribute('nonExistentAttribute');
+    console.log("Non-Existent Attribute:", nonExistentAttribute); // Output: Non-Existent Attribute: null
+
+
+    // Example of handling potential property errors
+    try{
+        console.log(divElement.nonExistentProperty);
+    } catch(e){
+        console.error("Error accessing non-existent property:", e);
+    }
+  </script>
+</body>
+</html>
