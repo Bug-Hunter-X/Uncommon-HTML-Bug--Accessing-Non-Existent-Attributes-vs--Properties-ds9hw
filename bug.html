@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is inside a div.
+  </div>
+
+  <script>
+    // Attempting to access a non-existent attribute will not throw an error, but will return undefined.
+    let attributeValue = document.getElementById('myDiv').nonExistentAttribute;
+    console.log(attributeValue); // Output: undefined
+
+    //However, attempting to access a property that does not exist on the element will throw a TypeError
+    // let attributeValue = document.getElementById('myDiv').nonExistentProperty;
+    // console.log(attributeValue);
+  </script>
+</body>
+</html>
